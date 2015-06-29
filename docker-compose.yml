@@ -1,0 +1,12 @@
+rabbitmq:
+    image: gperry100/rabbit
+    ports:
+        - "5672:5672"
+        - "15672:15672"
+
+bunnyorderservice:
+    image: gperry100/bunnyorderservice
+    links:
+        - rabbitmq:amq
+    ports:
+        - "::5672"
